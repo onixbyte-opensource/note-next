@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.notepad-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #ffffff;
+  color: #1e1e1e;
+}
+
+.editor-wrapper {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Stretch CodeMirror container and line-number gutter to full viewport height */
+.editor-wrapper .cm-theme,
+.editor-wrapper .cm-editor {
+  height: 100%;
+  font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  font-size: 14px;
+}
+
+.editor-wrapper .cm-scroller {
+  align-items: stretch !important;
+}
+
+.editor-wrapper .cm-gutters {
+  min-height: 100%;
+  align-self: stretch;
+}
+
+.editor-wrapper .cm-editor.cm-focused {
+  outline: none;
+}
+
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 12px;
+  font-size: 12px;
+  background-color: #f3f3f3;
+  border-top: 1px solid #dcdcdc;
+  color: #555555;
+  user-select: none;
+}
+
+.file-path {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 70%;
+}
+
+.status-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.separator {
+  opacity: 0.4;
+}
+
+.language-select {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 1px 4px;
+  border-radius: 3px;
+  outline: none;
+}
+
+.language-select:hover {
+  background-color: rgba(128, 128, 128, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .notepad-container {
+    background-color: #282c34;
+    color: #abb2bf;
+  }
+  .statusbar {
+    background-color: #21252b;
+    border-top-color: #181a1f;
+    color: #9da5b4;
+  }
+  .language-select option {
+    background-color: #21252b;
+    color: #abb2bf;
+  }
+}
